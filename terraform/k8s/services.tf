@@ -5,7 +5,7 @@ resource "kubernetes_service" "app-master" {
 
     spec {
         selector = {
-          app  = "insuranceonspringboot"
+          app  = "insuranceOnSpringboot"
         }
         port {
             name        = "http"

@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -64,7 +65,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>08/21/2026</td></tr>
+ *          <tr><td>published</td><td>09/12/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -248,7 +249,7 @@ public class AdjusterService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToClaims(command.getAdjusterId(), command.getAddTo());
+		projector.addToClaims(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -264,7 +265,7 @@ public class AdjusterService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromClaims(command.getAdjusterId(), command.getRemoveFrom());
+		projector.removeFromClaims(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -281,7 +282,7 @@ public class AdjusterService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToServiceProviders(command.getAdjusterId(), command.getAddTo());
+		projector.addToServiceProviders(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -297,7 +298,7 @@ public class AdjusterService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromServiceProviders(command.getAdjusterId(), command.getRemoveFrom());
+		projector.removeFromServiceProviders(command.getParentId(), command.getChildIds());
 	}
 
 

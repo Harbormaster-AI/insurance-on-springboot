@@ -12,7 +12,7 @@ provider "aws" {
       CreatedBy = "Harbormaster"
       Blueprint = "Spring Boot 3.5"
       DomainModel = "Insurance Industry Domain Model"
-      CertificationId = "f6e276d4-7b78-4ae0-8962-9d1b0497f763"
+      CertificationId = "40ceba53-3dc8-4829-8fb1-967f4c73a92a"
     }
   }
 }
@@ -39,7 +39,7 @@ resource "local_file" "private_key_pem" {
 }
 
 resource "aws_key_pair" "generated" {
-  key_name   = "pjsk-sshtest-0.44692752336724895"
+  key_name   = "pjsk-sshtest-0.39339628201960664"
   public_key = tls_private_key.generated.public_key_openssh
 
   lifecycle {
@@ -56,9 +56,44 @@ resource "aws_vpc" "default" {
   cidr_block = "10.0.0.0/16"
 }
 
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
 resource "aws_subnet" "default" {
   vpc_id     = aws_vpc.default.id
   cidr_block = "10.0.1.0/24"
+  availability_zone       = data.aws_availability_zones.available.names[0]
+  map_public_ip_on_launch = true
+}
+
+resource "aws_subnet" "secondary" {
+  vpc_id            = aws_vpc.default.id
+  cidr_block        = "10.0.2.0/24"
+  availability_zone = data.aws_availability_zones.available.names[1]
+}
+
+resource "aws_internet_gateway" "default" {
+  vpc_id = aws_vpc.default.id
+}
+
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.default.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.default.id
+  }
+}
+
+resource "aws_route_table_association" "default" {
+  subnet_id      = aws_subnet.default.id
+  route_table_id = aws_route_table.public.id
+}
+
+# bug: RDS must use DB subnet group in same VPC
+resource "aws_db_subnet_group" "default" {
+  name       = "insuranceOnSpringboot-db-subnet"
+  subnet_ids = [aws_subnet.default.id, aws_subnet.secondary.id]
 }
 
 # -------------------------------------------------------
@@ -67,8 +102,8 @@ resource "aws_subnet" "default" {
 # -------------------------------------------------------
 
 resource "aws_security_group" "web" {
-#  name        = "insuranceonspringboot-security-group-from-terraform" #optional, when omitted, terraform creates a random name
-  description = "security group for application insuranceonspringboot created from terraform"
+#  name        = "insuranceOnSpringboot-security-group-from-terraform" #optional, when omitted, terraform creates a random name
+  description = "security group for application insuranceOnSpringboot created from terraform"
   vpc_id      = aws_vpc.default.id
 
   # SSH access from anywhere
@@ -109,7 +144,7 @@ resource "aws_security_group" "web" {
 # -------------------------------------------------------
 
 resource "aws_security_group" "db" {
-  description = "security group for insuranceonspringboot and mysql created from terraform"
+  description = "security group for insuranceOnSpringboot and mysql created from terraform"
   vpc_id      = aws_vpc.default.id
 
   # mysql access from anywhere
@@ -131,14 +166,17 @@ resource "aws_security_group" "db" {
 
 resource "aws_db_instance" "default" {
   depends_on             = [aws_security_group.db]
-#  identifier             = "insuranceonspringboot-rds" # Terraform will create a unique id if not assigned
+#  identifier             = "insuranceOnSpringboot-rds" # Terraform will create a unique id if not assigned
   allocated_storage      = 20
   engine                 = "mysql"
   instance_class         = "db.t3.medium"
-  db_name                = "insuranceonspringboot"
+  db_name                = "insuranceOnSpringboot"
   username               = "no_user_name"
   password               = "no_password"
   vpc_security_group_ids = [aws_security_group.db.id]
+  db_subnet_group_name   = aws_db_subnet_group.default.name # bug: wire RDS to VPC subnet group
+  skip_final_snapshot    = true # bug: allow terraform destroy without final snapshot prompt
+
 }
  
 # -------------------------------------------------------
@@ -160,13 +198,19 @@ resource "aws_iam_role" "eks" {
   })
 }
 
-resource "aws_eks_cluster" "this" {
-  name     = "eks_cluster_insuranceonspringboot"
-  role_arn = aws_iam_role.eks.arn
+resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+  role       = aws_iam_role.eks.name
+}
 
+resource "aws_eks_cluster" "this" {
+  name     = "eks_cluster_insuranceOnSpringboot"
+  role_arn = aws_iam_role.eks.arn
   vpc_config {
-    subnet_ids = [aws_subnet.default.id]
+    # EKS requires subnet IDs in at least 2 AZs
+    subnet_ids = [aws_subnet.default.id, aws_subnet.secondary.id]
   }
+  depends_on = [aws_iam_role_policy_attachment.eks_cluster_policy]
 }
 
 # -------------------------------------------------------
@@ -183,13 +227,13 @@ resource "aws_instance" "web" {
     # The default username for our ec2 instance
     type = "ssh"
     host = self.public_ip
-    user = "ubuntu"
+    user = "ec2-user"
     private_key = tls_private_key.generated.private_key_pem
   }
 
   instance_type = "t2.medium"
   
-  tags = { Name = "insuranceonspringboot instance" } 
+  tags = { Name = "insuranceOnSpringboot instance" } 
 
   # -------------------------------------------------------
   # standard harbormaster community AMI with docker pre-installed
@@ -213,6 +257,8 @@ resource "aws_instance" "web" {
   # Our Security group to allow HTTP and SSH access
   # -------------------------------------------------------
   vpc_security_group_ids = [aws_security_group.web.id]
+  subnet_id                   = aws_subnet.default.id
+  associate_public_ip_address = true
 
   # -------------------------------------------------------
   # remote execution commands
@@ -220,17 +266,18 @@ resource "aws_instance" "web" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get -y update",
+      "sudo dnf -y install docker",
+      "sudo systemctl enable --now docker",
       "sudo docker login --username tylertravismya --password 69Cutlass",
       "sudo docker pull theharbormaster/insurance-on-springboot:latest",
-      "sudo docker run -p 8000:8000 -p 8080:8080 -e DATABASE_URL=jdbc:mysql://${aws_db_instance.default.endpoint}/insuranceonspringboot theharbormaster/insurance-on-springboot:latest"
+      "sudo docker run -d -p 8000:8000 -p 8080:8080 -e DATABASE_URL=jdbc:mysql://${aws_db_instance.default.endpoint}/insuranceOnSpringboot theharbormaster/insurance-on-springboot:latest"
     ]
   }
 }
 
 output "ssh_command" {
   description = "Command to use to SSH into the instance."
-  value = "ssh -i ${local.private_key_filename} ubuntu@${aws_instance.web.public_ip}"
+  value = "ssh -i ${local.private_key_filename} ec2-user@${aws_instance.web.public_ip}"
 }
 
 

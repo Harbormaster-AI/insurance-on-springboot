@@ -7,7 +7,7 @@ Harbormaster
 
 
 ## Application
-- Name: insurance-on-springboot
+- Name: insuranceOnSpringboot
 - Description: Banking Restful Backend
 - Company Name: Turnstone National Bank
 

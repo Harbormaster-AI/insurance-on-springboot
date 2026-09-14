@@ -31,7 +31,7 @@ public class BaseRootRestController extends BaseSpringRestController {
 
     @GetMapping("/")
     public ResponseEntity<String> root() {
-        return ResponseEntity.ok("insurance-on-springboot is running.");
+        return ResponseEntity.ok("insuranceOnSpringboot is running.");
     }
 
     @GetMapping("/system")

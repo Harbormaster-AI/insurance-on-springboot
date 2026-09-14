@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -64,7 +65,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>08/21/2026</td></tr>
+ *          <tr><td>published</td><td>09/12/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -249,7 +250,7 @@ public class PaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignInvoice(command.getPaymentId(), command.getAssignment());
+		projector.assignInvoice(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -267,7 +268,7 @@ public class PaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignInvoice(command.getPaymentId());
+		projector.unAssignInvoice(command.getChildId());
 	}
 	
 	/**
@@ -283,7 +284,7 @@ public class PaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignBillingAccount(command.getPaymentId(), command.getAssignment());
+		projector.assignBillingAccount(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -301,7 +302,7 @@ public class PaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignBillingAccount(command.getPaymentId());
+		projector.unAssignBillingAccount(command.getChildId());
 	}
 	
 	/**
@@ -317,7 +318,7 @@ public class PaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignPolicy(command.getPaymentId(), command.getAssignment());
+		projector.assignPolicy(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -335,7 +336,7 @@ public class PaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignPolicy(command.getPaymentId());
+		projector.unAssignPolicy(command.getChildId());
 	}
 	
 

@@ -2,7 +2,7 @@ gitRepo:
   gitProvider: 
   path: /insurance-on-springboot
   TestDBUrl: 
-  TestDBName: insuranceonspringboot_test_db
+  TestDBName: insuranceOnSpringboot_test_db
   TestDBPassword: 
   TestDBDialect: org.hibernate.dialect.MySQL8Dialect 
   TestDBDriver: com.mysql.cj.jdbc.Driver

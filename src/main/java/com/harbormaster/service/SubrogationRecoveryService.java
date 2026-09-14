@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -64,7 +65,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>08/21/2026</td></tr>
+ *          <tr><td>published</td><td>09/12/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -247,7 +248,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignClaim(command.getSubrogationRecoveryId(), command.getAssignment());
+		projector.assignClaim(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -265,7 +266,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignClaim(command.getSubrogationRecoveryId());
+		projector.unAssignClaim(command.getChildId());
 	}
 	
 	/**
@@ -281,7 +282,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignExposure(command.getSubrogationRecoveryId(), command.getAssignment());
+		projector.assignExposure(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -299,7 +300,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignExposure(command.getSubrogationRecoveryId());
+		projector.unAssignExposure(command.getChildId());
 	}
 	
 	/**
@@ -315,7 +316,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCounterparty(command.getSubrogationRecoveryId(), command.getAssignment());
+		projector.assignCounterparty(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -333,7 +334,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCounterparty(command.getSubrogationRecoveryId());
+		projector.unAssignCounterparty(command.getChildId());
 	}
 	
 
