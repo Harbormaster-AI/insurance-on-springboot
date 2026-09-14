@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -248,7 +247,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignDistributor(command.getChildId(), command.getAssignment());
+		projector.assignDistributor(command.getAgentId(), command.getAssignment());
 
 	}
 
@@ -266,7 +265,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignDistributor(command.getChildId());
+		projector.unAssignDistributor(command.getAgentId());
 	}
 	
 
@@ -284,7 +283,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getParentId(), command.getChildIds());
+		projector.addToPolicies(command.getAgentId(), command.getAddTo());
 	}
 
 	/**
@@ -300,7 +299,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
+		projector.removeFromPolicies(command.getAgentId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -317,7 +316,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToCustomers(command.getParentId(), command.getChildIds());
+		projector.addToCustomers(command.getAgentId(), command.getAddTo());
 	}
 
 	/**
@@ -333,7 +332,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromCustomers(command.getParentId(), command.getChildIds());
+		projector.removeFromCustomers(command.getAgentId(), command.getRemoveFrom());
 	}
 
 

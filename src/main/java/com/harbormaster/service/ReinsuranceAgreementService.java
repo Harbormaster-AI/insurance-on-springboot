@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -253,7 +252,7 @@ public class ReinsuranceAgreementService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignInsurer(command.getChildId(), command.getAssignment());
+		projector.assignInsurer(command.getReinsuranceAgreementId(), command.getAssignment());
 
 	}
 
@@ -271,7 +270,7 @@ public class ReinsuranceAgreementService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignInsurer(command.getChildId());
+		projector.unAssignInsurer(command.getReinsuranceAgreementId());
 	}
 	
 
@@ -289,7 +288,7 @@ public class ReinsuranceAgreementService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getParentId(), command.getChildIds());
+		projector.addToPolicies(command.getReinsuranceAgreementId(), command.getAddTo());
 	}
 
 	/**
@@ -305,7 +304,7 @@ public class ReinsuranceAgreementService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
+		projector.removeFromPolicies(command.getReinsuranceAgreementId(), command.getRemoveFrom());
 	}
 
 

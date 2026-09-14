@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -247,7 +246,7 @@ public class ClaimReserveService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignClaim(command.getChildId(), command.getAssignment());
+		projector.assignClaim(command.getClaimReserveId(), command.getAssignment());
 
 	}
 
@@ -265,7 +264,7 @@ public class ClaimReserveService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignClaim(command.getChildId());
+		projector.unAssignClaim(command.getClaimReserveId());
 	}
 	
 	/**
@@ -281,7 +280,7 @@ public class ClaimReserveService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignExposure(command.getChildId(), command.getAssignment());
+		projector.assignExposure(command.getClaimReserveId(), command.getAssignment());
 
 	}
 
@@ -299,7 +298,7 @@ public class ClaimReserveService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignExposure(command.getChildId());
+		projector.unAssignExposure(command.getClaimReserveId());
 	}
 	
 

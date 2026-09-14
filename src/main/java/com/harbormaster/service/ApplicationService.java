@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -248,7 +247,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCustomer(command.getChildId(), command.getAssignment());
+		projector.assignCustomer(command.getApplicationId(), command.getAssignment());
 
 	}
 
@@ -266,7 +265,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCustomer(command.getChildId());
+		projector.unAssignCustomer(command.getApplicationId());
 	}
 	
 	/**
@@ -282,7 +281,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignProduct(command.getChildId(), command.getAssignment());
+		projector.assignProduct(command.getApplicationId(), command.getAssignment());
 
 	}
 
@@ -300,7 +299,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignProduct(command.getChildId());
+		projector.unAssignProduct(command.getApplicationId());
 	}
 	
 	/**
@@ -316,7 +315,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignDistributor(command.getChildId(), command.getAssignment());
+		projector.assignDistributor(command.getApplicationId(), command.getAssignment());
 
 	}
 
@@ -334,7 +333,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignDistributor(command.getChildId());
+		projector.unAssignDistributor(command.getApplicationId());
 	}
 	
 	/**
@@ -350,7 +349,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignSelectedQuote(command.getChildId(), command.getAssignment());
+		projector.assignSelectedQuote(command.getApplicationId(), command.getAssignment());
 
 	}
 
@@ -368,7 +367,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignSelectedQuote(command.getChildId());
+		projector.unAssignSelectedQuote(command.getApplicationId());
 	}
 	
 
@@ -386,7 +385,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToQuotes(command.getParentId(), command.getChildIds());
+		projector.addToQuotes(command.getApplicationId(), command.getAddTo());
 	}
 
 	/**
@@ -402,7 +401,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromQuotes(command.getParentId(), command.getChildIds());
+		projector.removeFromQuotes(command.getApplicationId(), command.getRemoveFrom());
 	}
 
 

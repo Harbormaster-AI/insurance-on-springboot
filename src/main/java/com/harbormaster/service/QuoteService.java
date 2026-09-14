@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -248,7 +247,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignApplication(command.getChildId(), command.getAssignment());
+		projector.assignApplication(command.getQuoteId(), command.getAssignment());
 
 	}
 
@@ -266,7 +265,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignApplication(command.getChildId());
+		projector.unAssignApplication(command.getQuoteId());
 	}
 	
 	/**
@@ -282,7 +281,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignPolicy(command.getChildId(), command.getAssignment());
+		projector.assignPolicy(command.getQuoteId(), command.getAssignment());
 
 	}
 
@@ -300,7 +299,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignPolicy(command.getChildId());
+		projector.unAssignPolicy(command.getQuoteId());
 	}
 	
 
@@ -318,7 +317,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToUnderwritingDecisions(command.getParentId(), command.getChildIds());
+		projector.addToUnderwritingDecisions(command.getQuoteId(), command.getAddTo());
 	}
 
 	/**
@@ -334,7 +333,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromUnderwritingDecisions(command.getParentId(), command.getChildIds());
+		projector.removeFromUnderwritingDecisions(command.getQuoteId(), command.getRemoveFrom());
 	}
 
 

@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -246,7 +245,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignClaim(command.getChildId(), command.getAssignment());
+		projector.assignClaim(command.getExposureId(), command.getAssignment());
 
 	}
 
@@ -264,7 +263,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignClaim(command.getChildId());
+		projector.unAssignClaim(command.getExposureId());
 	}
 	
 	/**
@@ -280,7 +279,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignPolicyCoverage(command.getChildId(), command.getAssignment());
+		projector.assignPolicyCoverage(command.getExposureId(), command.getAssignment());
 
 	}
 
@@ -298,7 +297,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignPolicyCoverage(command.getChildId());
+		projector.unAssignPolicyCoverage(command.getExposureId());
 	}
 	
 	/**
@@ -314,7 +313,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignInsuredObject(command.getChildId(), command.getAssignment());
+		projector.assignInsuredObject(command.getExposureId(), command.getAssignment());
 
 	}
 
@@ -332,7 +331,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignInsuredObject(command.getChildId());
+		projector.unAssignInsuredObject(command.getExposureId());
 	}
 	
 
@@ -350,7 +349,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToReserves(command.getParentId(), command.getChildIds());
+		projector.addToReserves(command.getExposureId(), command.getAddTo());
 	}
 
 	/**
@@ -366,7 +365,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromReserves(command.getParentId(), command.getChildIds());
+		projector.removeFromReserves(command.getExposureId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -383,7 +382,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPayments(command.getParentId(), command.getChildIds());
+		projector.addToPayments(command.getExposureId(), command.getAddTo());
 	}
 
 	/**
@@ -399,7 +398,7 @@ public class ExposureService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPayments(command.getParentId(), command.getChildIds());
+		projector.removeFromPayments(command.getExposureId(), command.getRemoveFrom());
 	}
 
 

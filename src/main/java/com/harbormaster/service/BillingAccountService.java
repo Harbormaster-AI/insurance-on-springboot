@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -247,7 +246,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCustomer(command.getChildId(), command.getAssignment());
+		projector.assignCustomer(command.getBillingAccountId(), command.getAssignment());
 
 	}
 
@@ -265,7 +264,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCustomer(command.getChildId());
+		projector.unAssignCustomer(command.getBillingAccountId());
 	}
 	
 
@@ -283,7 +282,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getParentId(), command.getChildIds());
+		projector.addToPolicies(command.getBillingAccountId(), command.getAddTo());
 	}
 
 	/**
@@ -299,7 +298,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
+		projector.removeFromPolicies(command.getBillingAccountId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -316,7 +315,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToInvoices(command.getParentId(), command.getChildIds());
+		projector.addToInvoices(command.getBillingAccountId(), command.getAddTo());
 	}
 
 	/**
@@ -332,7 +331,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromInvoices(command.getParentId(), command.getChildIds());
+		projector.removeFromInvoices(command.getBillingAccountId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -349,7 +348,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPayments(command.getParentId(), command.getChildIds());
+		projector.addToPayments(command.getBillingAccountId(), command.getAddTo());
 	}
 
 	/**
@@ -365,7 +364,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPayments(command.getParentId(), command.getChildIds());
+		projector.removeFromPayments(command.getBillingAccountId(), command.getRemoveFrom());
 	}
 
 

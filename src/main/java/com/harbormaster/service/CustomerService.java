@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -258,7 +257,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToApplications(command.getParentId(), command.getChildIds());
+		projector.addToApplications(command.getCustomerId(), command.getAddTo());
 	}
 
 	/**
@@ -274,7 +273,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromApplications(command.getParentId(), command.getChildIds());
+		projector.removeFromApplications(command.getCustomerId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -291,7 +290,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getParentId(), command.getChildIds());
+		projector.addToPolicies(command.getCustomerId(), command.getAddTo());
 	}
 
 	/**
@@ -307,7 +306,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
+		projector.removeFromPolicies(command.getCustomerId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -324,7 +323,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToClaims(command.getParentId(), command.getChildIds());
+		projector.addToClaims(command.getCustomerId(), command.getAddTo());
 	}
 
 	/**
@@ -340,7 +339,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromClaims(command.getParentId(), command.getChildIds());
+		projector.removeFromClaims(command.getCustomerId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -357,7 +356,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToAgents(command.getParentId(), command.getChildIds());
+		projector.addToAgents(command.getCustomerId(), command.getAddTo());
 	}
 
 	/**
@@ -373,7 +372,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromAgents(command.getParentId(), command.getChildIds());
+		projector.removeFromAgents(command.getCustomerId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -390,7 +389,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToBeneficiaries(command.getParentId(), command.getChildIds());
+		projector.addToBeneficiaries(command.getCustomerId(), command.getAddTo());
 	}
 
 	/**
@@ -406,7 +405,7 @@ public class CustomerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromBeneficiaries(command.getParentId(), command.getChildIds());
+		projector.removeFromBeneficiaries(command.getCustomerId(), command.getRemoveFrom());
 	}
 
 

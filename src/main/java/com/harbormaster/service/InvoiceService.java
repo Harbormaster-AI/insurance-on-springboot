@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -248,7 +247,7 @@ public class InvoiceService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignBillingAccount(command.getChildId(), command.getAssignment());
+		projector.assignBillingAccount(command.getInvoiceId(), command.getAssignment());
 
 	}
 
@@ -266,7 +265,7 @@ public class InvoiceService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignBillingAccount(command.getChildId());
+		projector.unAssignBillingAccount(command.getInvoiceId());
 	}
 	
 	/**
@@ -282,7 +281,7 @@ public class InvoiceService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignPolicy(command.getChildId(), command.getAssignment());
+		projector.assignPolicy(command.getInvoiceId(), command.getAssignment());
 
 	}
 
@@ -300,7 +299,7 @@ public class InvoiceService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignPolicy(command.getChildId());
+		projector.unAssignPolicy(command.getInvoiceId());
 	}
 	
 
@@ -318,7 +317,7 @@ public class InvoiceService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPayments(command.getParentId(), command.getChildIds());
+		projector.addToPayments(command.getInvoiceId(), command.getAddTo());
 	}
 
 	/**
@@ -334,7 +333,7 @@ public class InvoiceService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPayments(command.getParentId(), command.getChildIds());
+		projector.removeFromPayments(command.getInvoiceId(), command.getRemoveFrom());
 	}
 
 

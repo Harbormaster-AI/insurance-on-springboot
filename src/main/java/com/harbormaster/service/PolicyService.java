@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -258,7 +257,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignInsurer(command.getChildId(), command.getAssignment());
+		projector.assignInsurer(command.getPolicyId(), command.getAssignment());
 
 	}
 
@@ -276,7 +275,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignInsurer(command.getChildId());
+		projector.unAssignInsurer(command.getPolicyId());
 	}
 	
 	/**
@@ -292,7 +291,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCustomer(command.getChildId(), command.getAssignment());
+		projector.assignCustomer(command.getPolicyId(), command.getAssignment());
 
 	}
 
@@ -310,7 +309,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCustomer(command.getChildId());
+		projector.unAssignCustomer(command.getPolicyId());
 	}
 	
 	/**
@@ -326,7 +325,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignProduct(command.getChildId(), command.getAssignment());
+		projector.assignProduct(command.getPolicyId(), command.getAssignment());
 
 	}
 
@@ -344,7 +343,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignProduct(command.getChildId());
+		projector.unAssignProduct(command.getPolicyId());
 	}
 	
 	/**
@@ -360,7 +359,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignAgent(command.getChildId(), command.getAssignment());
+		projector.assignAgent(command.getPolicyId(), command.getAssignment());
 
 	}
 
@@ -378,7 +377,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignAgent(command.getChildId());
+		projector.unAssignAgent(command.getPolicyId());
 	}
 	
 	/**
@@ -394,7 +393,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignBillingAccount(command.getChildId(), command.getAssignment());
+		projector.assignBillingAccount(command.getPolicyId(), command.getAssignment());
 
 	}
 
@@ -412,7 +411,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignBillingAccount(command.getChildId());
+		projector.unAssignBillingAccount(command.getPolicyId());
 	}
 	
 
@@ -430,7 +429,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToCoverages(command.getParentId(), command.getChildIds());
+		projector.addToCoverages(command.getPolicyId(), command.getAddTo());
 	}
 
 	/**
@@ -446,7 +445,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromCoverages(command.getParentId(), command.getChildIds());
+		projector.removeFromCoverages(command.getPolicyId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -463,7 +462,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToInsuredObjects(command.getParentId(), command.getChildIds());
+		projector.addToInsuredObjects(command.getPolicyId(), command.getAddTo());
 	}
 
 	/**
@@ -479,7 +478,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromInsuredObjects(command.getParentId(), command.getChildIds());
+		projector.removeFromInsuredObjects(command.getPolicyId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -496,7 +495,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToEndorsements(command.getParentId(), command.getChildIds());
+		projector.addToEndorsements(command.getPolicyId(), command.getAddTo());
 	}
 
 	/**
@@ -512,7 +511,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromEndorsements(command.getParentId(), command.getChildIds());
+		projector.removeFromEndorsements(command.getPolicyId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -529,7 +528,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToBeneficiaries(command.getParentId(), command.getChildIds());
+		projector.addToBeneficiaries(command.getPolicyId(), command.getAddTo());
 	}
 
 	/**
@@ -545,7 +544,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromBeneficiaries(command.getParentId(), command.getChildIds());
+		projector.removeFromBeneficiaries(command.getPolicyId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -562,7 +561,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToClaims(command.getParentId(), command.getChildIds());
+		projector.addToClaims(command.getPolicyId(), command.getAddTo());
 	}
 
 	/**
@@ -578,7 +577,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromClaims(command.getParentId(), command.getChildIds());
+		projector.removeFromClaims(command.getPolicyId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -595,7 +594,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToReinsuranceAgreements(command.getParentId(), command.getChildIds());
+		projector.addToReinsuranceAgreements(command.getPolicyId(), command.getAddTo());
 	}
 
 	/**
@@ -611,7 +610,7 @@ public class PolicyService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromReinsuranceAgreements(command.getParentId(), command.getChildIds());
+		projector.removeFromReinsuranceAgreements(command.getPolicyId(), command.getRemoveFrom());
 	}
 
 

@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -254,7 +253,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToProducts(command.getParentId(), command.getChildIds());
+		projector.addToProducts(command.getInsurerId(), command.getAddTo());
 	}
 
 	/**
@@ -270,7 +269,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromProducts(command.getParentId(), command.getChildIds());
+		projector.removeFromProducts(command.getInsurerId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -287,7 +286,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToDistributionPartners(command.getParentId(), command.getChildIds());
+		projector.addToDistributionPartners(command.getInsurerId(), command.getAddTo());
 	}
 
 	/**
@@ -303,7 +302,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromDistributionPartners(command.getParentId(), command.getChildIds());
+		projector.removeFromDistributionPartners(command.getInsurerId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -320,7 +319,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getParentId(), command.getChildIds());
+		projector.addToPolicies(command.getInsurerId(), command.getAddTo());
 	}
 
 	/**
@@ -336,7 +335,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
+		projector.removeFromPolicies(command.getInsurerId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -353,7 +352,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToClaims(command.getParentId(), command.getChildIds());
+		projector.addToClaims(command.getInsurerId(), command.getAddTo());
 	}
 
 	/**
@@ -369,7 +368,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromClaims(command.getParentId(), command.getChildIds());
+		projector.removeFromClaims(command.getInsurerId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -386,7 +385,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToReinsuranceAgreements(command.getParentId(), command.getChildIds());
+		projector.addToReinsuranceAgreements(command.getInsurerId(), command.getAddTo());
 	}
 
 	/**
@@ -402,7 +401,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromReinsuranceAgreements(command.getParentId(), command.getChildIds());
+		projector.removeFromReinsuranceAgreements(command.getInsurerId(), command.getRemoveFrom());
 	}
 
 

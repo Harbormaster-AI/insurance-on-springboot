@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -250,7 +249,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToInsurers(command.getParentId(), command.getChildIds());
+		projector.addToInsurers(command.getDistributorId(), command.getAddTo());
 	}
 
 	/**
@@ -266,7 +265,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromInsurers(command.getParentId(), command.getChildIds());
+		projector.removeFromInsurers(command.getDistributorId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -283,7 +282,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToAgents(command.getParentId(), command.getChildIds());
+		projector.addToAgents(command.getDistributorId(), command.getAddTo());
 	}
 
 	/**
@@ -299,7 +298,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromAgents(command.getParentId(), command.getChildIds());
+		projector.removeFromAgents(command.getDistributorId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -316,7 +315,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getParentId(), command.getChildIds());
+		projector.addToPolicies(command.getDistributorId(), command.getAddTo());
 	}
 
 	/**
@@ -332,7 +331,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
+		projector.removeFromPolicies(command.getDistributorId(), command.getRemoveFrom());
 	}
 
 

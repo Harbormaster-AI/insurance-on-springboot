@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -245,7 +244,7 @@ public class InsuranceProductService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignInsurer(command.getChildId(), command.getAssignment());
+		projector.assignInsurer(command.getInsuranceProductId(), command.getAssignment());
 
 	}
 
@@ -263,7 +262,7 @@ public class InsuranceProductService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignInsurer(command.getChildId());
+		projector.unAssignInsurer(command.getInsuranceProductId());
 	}
 	
 
@@ -281,7 +280,7 @@ public class InsuranceProductService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToCoverageDefinitions(command.getParentId(), command.getChildIds());
+		projector.addToCoverageDefinitions(command.getInsuranceProductId(), command.getAddTo());
 	}
 
 	/**
@@ -297,7 +296,7 @@ public class InsuranceProductService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromCoverageDefinitions(command.getParentId(), command.getChildIds());
+		projector.removeFromCoverageDefinitions(command.getInsuranceProductId(), command.getRemoveFrom());
 	}
 
 

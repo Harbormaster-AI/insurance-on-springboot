@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -258,7 +257,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignPolicy(command.getChildId(), command.getAssignment());
+		projector.assignPolicy(command.getClaimId(), command.getAssignment());
 
 	}
 
@@ -276,7 +275,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignPolicy(command.getChildId());
+		projector.unAssignPolicy(command.getClaimId());
 	}
 	
 	/**
@@ -292,7 +291,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCustomer(command.getChildId(), command.getAssignment());
+		projector.assignCustomer(command.getClaimId(), command.getAssignment());
 
 	}
 
@@ -310,7 +309,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCustomer(command.getChildId());
+		projector.unAssignCustomer(command.getClaimId());
 	}
 	
 	/**
@@ -326,7 +325,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignAdjuster(command.getChildId(), command.getAssignment());
+		projector.assignAdjuster(command.getClaimId(), command.getAssignment());
 
 	}
 
@@ -344,7 +343,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignAdjuster(command.getChildId());
+		projector.unAssignAdjuster(command.getClaimId());
 	}
 	
 	/**
@@ -360,7 +359,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignIncident(command.getChildId(), command.getAssignment());
+		projector.assignIncident(command.getClaimId(), command.getAssignment());
 
 	}
 
@@ -378,7 +377,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignIncident(command.getChildId());
+		projector.unAssignIncident(command.getClaimId());
 	}
 	
 
@@ -396,7 +395,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToExposures(command.getParentId(), command.getChildIds());
+		projector.addToExposures(command.getClaimId(), command.getAddTo());
 	}
 
 	/**
@@ -412,7 +411,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromExposures(command.getParentId(), command.getChildIds());
+		projector.removeFromExposures(command.getClaimId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -429,7 +428,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToReserves(command.getParentId(), command.getChildIds());
+		projector.addToReserves(command.getClaimId(), command.getAddTo());
 	}
 
 	/**
@@ -445,7 +444,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromReserves(command.getParentId(), command.getChildIds());
+		projector.removeFromReserves(command.getClaimId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -462,7 +461,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToClaimPayments(command.getParentId(), command.getChildIds());
+		projector.addToClaimPayments(command.getClaimId(), command.getAddTo());
 	}
 
 	/**
@@ -478,7 +477,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromClaimPayments(command.getParentId(), command.getChildIds());
+		projector.removeFromClaimPayments(command.getClaimId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -495,7 +494,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToServiceProviders(command.getParentId(), command.getChildIds());
+		projector.addToServiceProviders(command.getClaimId(), command.getAddTo());
 	}
 
 	/**
@@ -511,7 +510,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromServiceProviders(command.getParentId(), command.getChildIds());
+		projector.removeFromServiceProviders(command.getClaimId(), command.getRemoveFrom());
 	}
 
 	/**
@@ -528,7 +527,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToSubrogations(command.getParentId(), command.getChildIds());
+		projector.addToSubrogations(command.getClaimId(), command.getAddTo());
 	}
 
 	/**
@@ -544,7 +543,7 @@ public class ClaimService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromSubrogations(command.getParentId(), command.getChildIds());
+		projector.removeFromSubrogations(command.getClaimId(), command.getRemoveFrom());
 	}
 
 

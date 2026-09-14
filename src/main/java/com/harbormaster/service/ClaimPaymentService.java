@@ -21,7 +21,6 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
-
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ import com.harbormaster.security.*;
  *      <h3>Blueprint</h3>
  * 			<table>
  *          <tr><td>name</td><td>Spring Boot 3.5</td></tr>
- *          <tr><td>published</td><td>09/12/2026</td></tr>
+ *          <tr><td>published</td><td>09/14/2026</td></tr>
  *          <tr><td>design pattern</td><td>ServiceLayer</td></tr>
  *          <tr><td>architecture style</td><td>Layered</td></tr>
  *          </table>
@@ -254,7 +253,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignClaim(command.getChildId(), command.getAssignment());
+		projector.assignClaim(command.getClaimPaymentId(), command.getAssignment());
 
 	}
 
@@ -272,7 +271,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignClaim(command.getChildId());
+		projector.unAssignClaim(command.getClaimPaymentId());
 	}
 	
 	/**
@@ -288,7 +287,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignExposure(command.getChildId(), command.getAssignment());
+		projector.assignExposure(command.getClaimPaymentId(), command.getAssignment());
 
 	}
 
@@ -306,7 +305,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignExposure(command.getChildId());
+		projector.unAssignExposure(command.getClaimPaymentId());
 	}
 	
 	/**
@@ -322,7 +321,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignBeneficiary(command.getChildId(), command.getAssignment());
+		projector.assignBeneficiary(command.getClaimPaymentId(), command.getAssignment());
 
 	}
 
@@ -340,7 +339,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignBeneficiary(command.getChildId());
+		projector.unAssignBeneficiary(command.getClaimPaymentId());
 	}
 	
 	/**
@@ -356,7 +355,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignServiceProvider(command.getChildId(), command.getAssignment());
+		projector.assignServiceProvider(command.getClaimPaymentId(), command.getAssignment());
 
 	}
 
@@ -374,7 +373,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignServiceProvider(command.getChildId());
+		projector.unAssignServiceProvider(command.getClaimPaymentId());
 	}
 	
 	/**
@@ -390,7 +389,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCustomer(command.getChildId(), command.getAssignment());
+		projector.assignCustomer(command.getClaimPaymentId(), command.getAssignment());
 
 	}
 
@@ -408,7 +407,7 @@ public class ClaimPaymentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCustomer(command.getChildId());
+		projector.unAssignCustomer(command.getClaimPaymentId());
 	}
 	
 

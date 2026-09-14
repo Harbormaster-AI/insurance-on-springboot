@@ -26,14 +26,12 @@ package com.harbormaster.api;
 // --------------------------------------------
 // enum declarations
 // --------------------------------------------
-
 // --------------------------------------------
 // enum LineOfBusiness
 // --------------------------------------------
 enum class LineOfBusiness {
     PersonalAuto, Homeowners, Renters, TermLife, WholeLife, CommercialProperty, GeneralLiability, WorkersCompensation
 }
-
 
 // --------------------------------------------
 // enum CoverageType
@@ -42,14 +40,12 @@ enum class CoverageType {
     Liability, Collision, Comprehensive, PropertyDamage, BodilyInjury, UninsuredMotorist, MedicalPayments, Dwelling, Contents, PersonalLiability, BusinessInterruption, ProfessionalLiability
 }
 
-
 // --------------------------------------------
 // enum DistributionChannelType
 // --------------------------------------------
 enum class DistributionChannelType {
     Agency, Broker, Direct, Bancassurance, AffinityPartner, OnlineAggregator
 }
-
 
 // --------------------------------------------
 // enum ProducerStatus
@@ -58,14 +54,12 @@ enum class ProducerStatus {
     Active, Suspended, Terminated
 }
 
-
 // --------------------------------------------
 // enum CustomerType
 // --------------------------------------------
 enum class CustomerType {
     Individual, Organization
 }
-
 
 // --------------------------------------------
 // enum ApplicationStatus
@@ -74,14 +68,12 @@ enum class ApplicationStatus {
     Draft, Submitted, UnderReview, Quoted, Declined, Withdrawn, Bound
 }
 
-
 // --------------------------------------------
 // enum UnderwritingDecisionType
 // --------------------------------------------
 enum class UnderwritingDecisionType {
     Approve, ConditionalApprove, Refer, Decline
 }
-
 
 // --------------------------------------------
 // enum PolicyStatus
@@ -90,14 +82,12 @@ enum class PolicyStatus {
     Quoted, Active, Lapsed, Cancelled, Expired, PendingCancel, PendingReinstatement
 }
 
-
 // --------------------------------------------
 // enum PaymentPlanType
 // --------------------------------------------
 enum class PaymentPlanType {
     Annual, SemiAnnual, Quarterly, Monthly, PayInFull
 }
-
 
 // --------------------------------------------
 // enum BillingStatus
@@ -106,14 +96,12 @@ enum class BillingStatus {
     Current, Delinquent, Collections, Closed
 }
 
-
 // --------------------------------------------
 // enum InvoiceStatus
 // --------------------------------------------
 enum class InvoiceStatus {
     Open, Paid, PartiallyPaid, Void
 }
-
 
 // --------------------------------------------
 // enum PaymentMethod
@@ -122,14 +110,12 @@ enum class PaymentMethod {
     ACH, CreditCard, DebitCard, Check, Cash, Wire
 }
 
-
 // --------------------------------------------
 // enum PaymentStatus
 // --------------------------------------------
 enum class PaymentStatus {
     Pending, Settled, Failed, Refunded, Reversed
 }
-
 
 // --------------------------------------------
 // enum InsuredObjectType
@@ -138,14 +124,12 @@ enum class InsuredObjectType {
     Vehicle, Property, Person, Equipment, LiabilityExposure
 }
 
-
 // --------------------------------------------
 // enum RelationshipType
 // --------------------------------------------
 enum class RelationshipType {
     Spouse, Child, Parent, Sibling, BusinessPartner, Estate, Trust, Other
 }
-
 
 // --------------------------------------------
 // enum ClaimStatus
@@ -154,14 +138,12 @@ enum class ClaimStatus {
     Open, Closed, Reopened, Denied, PendingInvestigation, Litigation
 }
 
-
 // --------------------------------------------
 // enum PerilType
 // --------------------------------------------
 enum class PerilType {
     AutoAccident, Fire, Theft, Windstorm, Flood, Hail, Earthquake, Vandalism, Injury, Death
 }
-
 
 // --------------------------------------------
 // enum CauseOfLoss
@@ -170,14 +152,12 @@ enum class CauseOfLoss {
     Collision, Weather, MechanicalFailure, HumanError, NaturalDisaster, Theft, Vandalism, LiabilityClaim, Illness
 }
 
-
 // --------------------------------------------
 // enum ExposureType
 // --------------------------------------------
 enum class ExposureType {
     BodilyInjury, PropertyDamage, Medical, UninsuredMotorist, PersonalInjuryProtection, DwellingDamage, ContentsDamage, BusinessIncome
 }
-
 
 // --------------------------------------------
 // enum ExposureStatus
@@ -186,14 +166,12 @@ enum class ExposureStatus {
     Open, Closed, Pending, Reserved
 }
 
-
 // --------------------------------------------
 // enum AdjusterType
 // --------------------------------------------
 enum class AdjusterType {
     Staff, Independent, Public
 }
-
 
 // --------------------------------------------
 // enum ReserveType
@@ -202,14 +180,12 @@ enum class ReserveType {
     Indemnity, Expense, Legal, Medical
 }
 
-
 // --------------------------------------------
 // enum ReserveStatus
 // --------------------------------------------
 enum class ReserveStatus {
     Open, Released, Increased, Decreased, Closed
 }
-
 
 // --------------------------------------------
 // enum PayeeType
@@ -218,14 +194,12 @@ enum class PayeeType {
     Claimant, Beneficiary, ServiceProvider, Lienholder, Attorney
 }
 
-
 // --------------------------------------------
 // enum ServiceProviderType
 // --------------------------------------------
 enum class ServiceProviderType {
     RepairShop, Towing, MedicalProvider, Attorney, ForensicEngineer, RentalCar
 }
-
 
 // --------------------------------------------
 // enum NetworkStatus
@@ -234,14 +208,12 @@ enum class NetworkStatus {
     InNetwork, OutOfNetwork
 }
 
-
 // --------------------------------------------
 // enum ReinsuranceType
 // --------------------------------------------
 enum class ReinsuranceType {
     Treaty, Facultative
 }
-
 
 // --------------------------------------------
 // enum TreatyType
@@ -250,7 +222,6 @@ enum class TreatyType {
     QuotaShare, Surplus, ExcessOfLoss, StopLoss
 }
 
-
 // --------------------------------------------
 // enum ThirdPartyType
 // --------------------------------------------
@@ -258,14 +229,12 @@ enum class ThirdPartyType {
     Individual, Company, GovernmentAgency
 }
 
-
 // --------------------------------------------
 // enum DocumentType
 // --------------------------------------------
 enum class DocumentType {
     ApplicationForm, PolicyDocument, Endorsement, Invoice, ClaimForm, PoliceReport, Estimate, Photo, MedicalRecord, Correspondence
 }
-
 
 // --------------------------------------------
 // enum SubrogationStatus
