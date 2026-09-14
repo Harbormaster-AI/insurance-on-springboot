@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -246,7 +247,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCustomer(command.getBillingAccountId(), command.getAssignment());
+		projector.assignCustomer(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -264,7 +265,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCustomer(command.getBillingAccountId());
+		projector.unAssignCustomer(command.getChildId());
 	}
 	
 
@@ -282,7 +283,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getBillingAccountId(), command.getAddTo());
+		projector.addToPolicies(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -298,7 +299,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getBillingAccountId(), command.getRemoveFrom());
+		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -315,7 +316,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToInvoices(command.getBillingAccountId(), command.getAddTo());
+		projector.addToInvoices(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -331,7 +332,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromInvoices(command.getBillingAccountId(), command.getRemoveFrom());
+		projector.removeFromInvoices(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -348,7 +349,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPayments(command.getBillingAccountId(), command.getAddTo());
+		projector.addToPayments(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -364,7 +365,7 @@ public class BillingAccountService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPayments(command.getBillingAccountId(), command.getRemoveFrom());
+		projector.removeFromPayments(command.getParentId(), command.getChildIds());
 	}
 
 

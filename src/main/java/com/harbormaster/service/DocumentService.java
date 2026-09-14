@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -246,7 +247,7 @@ public class DocumentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignPolicy(command.getDocumentId(), command.getAssignment());
+		projector.assignPolicy(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -264,7 +265,7 @@ public class DocumentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignPolicy(command.getDocumentId());
+		projector.unAssignPolicy(command.getChildId());
 	}
 	
 	/**
@@ -280,7 +281,7 @@ public class DocumentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignClaim(command.getDocumentId(), command.getAssignment());
+		projector.assignClaim(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -298,7 +299,7 @@ public class DocumentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignClaim(command.getDocumentId());
+		projector.unAssignClaim(command.getChildId());
 	}
 	
 	/**
@@ -314,7 +315,7 @@ public class DocumentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignApplication(command.getDocumentId(), command.getAssignment());
+		projector.assignApplication(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -332,7 +333,7 @@ public class DocumentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignApplication(command.getDocumentId());
+		projector.unAssignApplication(command.getChildId());
 	}
 	
 	/**
@@ -348,7 +349,7 @@ public class DocumentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCustomer(command.getDocumentId(), command.getAssignment());
+		projector.assignCustomer(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -366,7 +367,7 @@ public class DocumentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCustomer(command.getDocumentId());
+		projector.unAssignCustomer(command.getChildId());
 	}
 	
 

@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -247,7 +248,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignDistributor(command.getAgentId(), command.getAssignment());
+		projector.assignDistributor(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -265,7 +266,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignDistributor(command.getAgentId());
+		projector.unAssignDistributor(command.getChildId());
 	}
 	
 
@@ -283,7 +284,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getAgentId(), command.getAddTo());
+		projector.addToPolicies(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -299,7 +300,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getAgentId(), command.getRemoveFrom());
+		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -316,7 +317,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToCustomers(command.getAgentId(), command.getAddTo());
+		projector.addToCustomers(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -332,7 +333,7 @@ public class AgentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromCustomers(command.getAgentId(), command.getRemoveFrom());
+		projector.removeFromCustomers(command.getParentId(), command.getChildIds());
 	}
 
 

@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -247,7 +248,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignApplication(command.getQuoteId(), command.getAssignment());
+		projector.assignApplication(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -265,7 +266,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignApplication(command.getQuoteId());
+		projector.unAssignApplication(command.getChildId());
 	}
 	
 	/**
@@ -281,7 +282,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignPolicy(command.getQuoteId(), command.getAssignment());
+		projector.assignPolicy(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -299,7 +300,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignPolicy(command.getQuoteId());
+		projector.unAssignPolicy(command.getChildId());
 	}
 	
 
@@ -317,7 +318,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToUnderwritingDecisions(command.getQuoteId(), command.getAddTo());
+		projector.addToUnderwritingDecisions(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -333,7 +334,7 @@ public class QuoteService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromUnderwritingDecisions(command.getQuoteId(), command.getRemoveFrom());
+		projector.removeFromUnderwritingDecisions(command.getParentId(), command.getChildIds());
 	}
 
 

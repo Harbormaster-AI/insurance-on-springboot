@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -247,7 +248,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCustomer(command.getApplicationId(), command.getAssignment());
+		projector.assignCustomer(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -265,7 +266,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCustomer(command.getApplicationId());
+		projector.unAssignCustomer(command.getChildId());
 	}
 	
 	/**
@@ -281,7 +282,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignProduct(command.getApplicationId(), command.getAssignment());
+		projector.assignProduct(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -299,7 +300,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignProduct(command.getApplicationId());
+		projector.unAssignProduct(command.getChildId());
 	}
 	
 	/**
@@ -315,7 +316,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignDistributor(command.getApplicationId(), command.getAssignment());
+		projector.assignDistributor(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -333,7 +334,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignDistributor(command.getApplicationId());
+		projector.unAssignDistributor(command.getChildId());
 	}
 	
 	/**
@@ -349,7 +350,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignSelectedQuote(command.getApplicationId(), command.getAssignment());
+		projector.assignSelectedQuote(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -367,7 +368,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignSelectedQuote(command.getApplicationId());
+		projector.unAssignSelectedQuote(command.getChildId());
 	}
 	
 
@@ -385,7 +386,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToQuotes(command.getApplicationId(), command.getAddTo());
+		projector.addToQuotes(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -401,7 +402,7 @@ public class ApplicationService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromQuotes(command.getApplicationId(), command.getRemoveFrom());
+		projector.removeFromQuotes(command.getParentId(), command.getChildIds());
 	}
 
 

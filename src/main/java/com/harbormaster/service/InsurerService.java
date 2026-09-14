@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -253,7 +254,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToProducts(command.getInsurerId(), command.getAddTo());
+		projector.addToProducts(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -269,7 +270,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromProducts(command.getInsurerId(), command.getRemoveFrom());
+		projector.removeFromProducts(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -286,7 +287,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToDistributionPartners(command.getInsurerId(), command.getAddTo());
+		projector.addToDistributionPartners(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -302,7 +303,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromDistributionPartners(command.getInsurerId(), command.getRemoveFrom());
+		projector.removeFromDistributionPartners(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -319,7 +320,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getInsurerId(), command.getAddTo());
+		projector.addToPolicies(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -335,7 +336,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getInsurerId(), command.getRemoveFrom());
+		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -352,7 +353,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToClaims(command.getInsurerId(), command.getAddTo());
+		projector.addToClaims(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -368,7 +369,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromClaims(command.getInsurerId(), command.getRemoveFrom());
+		projector.removeFromClaims(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -385,7 +386,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToReinsuranceAgreements(command.getInsurerId(), command.getAddTo());
+		projector.addToReinsuranceAgreements(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -401,7 +402,7 @@ public class InsurerService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromReinsuranceAgreements(command.getInsurerId(), command.getRemoveFrom());
+		projector.removeFromReinsuranceAgreements(command.getParentId(), command.getChildIds());
 	}
 
 

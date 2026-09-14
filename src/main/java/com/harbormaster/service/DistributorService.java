@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -249,7 +250,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToInsurers(command.getDistributorId(), command.getAddTo());
+		projector.addToInsurers(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -265,7 +266,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromInsurers(command.getDistributorId(), command.getRemoveFrom());
+		projector.removeFromInsurers(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -282,7 +283,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToAgents(command.getDistributorId(), command.getAddTo());
+		projector.addToAgents(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -298,7 +299,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromAgents(command.getDistributorId(), command.getRemoveFrom());
+		projector.removeFromAgents(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -315,7 +316,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToPolicies(command.getDistributorId(), command.getAddTo());
+		projector.addToPolicies(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -331,7 +332,7 @@ public class DistributorService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromPolicies(command.getDistributorId(), command.getRemoveFrom());
+		projector.removeFromPolicies(command.getParentId(), command.getChildIds());
 	}
 
 

@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -244,7 +245,7 @@ public class IncidentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignClaim(command.getIncidentId(), command.getAssignment());
+		projector.assignClaim(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -262,7 +263,7 @@ public class IncidentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignClaim(command.getIncidentId());
+		projector.unAssignClaim(command.getChildId());
 	}
 	
 
@@ -280,7 +281,7 @@ public class IncidentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.addToInsuredObjects(command.getIncidentId(), command.getAddTo());
+		projector.addToInsuredObjects(command.getParentId(), command.getChildIds());
 	}
 
 	/**
@@ -296,7 +297,7 @@ public class IncidentService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.removeFromInsuredObjects(command.getIncidentId(), command.getRemoveFrom());
+		projector.removeFromInsuredObjects(command.getParentId(), command.getChildIds());
 	}
 
 

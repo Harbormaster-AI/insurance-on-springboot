@@ -21,6 +21,7 @@
  * Contributors :
  *       Turnstone National Bank - General Release
  */
+
 package com.harbormaster.service;
 
 import java.io.IOException;
@@ -247,7 +248,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignClaim(command.getSubrogationRecoveryId(), command.getAssignment());
+		projector.assignClaim(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -265,7 +266,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignClaim(command.getSubrogationRecoveryId());
+		projector.unAssignClaim(command.getChildId());
 	}
 	
 	/**
@@ -281,7 +282,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignExposure(command.getSubrogationRecoveryId(), command.getAssignment());
+		projector.assignExposure(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -299,7 +300,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignExposure(command.getSubrogationRecoveryId());
+		projector.unAssignExposure(command.getChildId());
 	}
 	
 	/**
@@ -315,7 +316,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.assignCounterparty(command.getSubrogationRecoveryId(), command.getAssignment());
+		projector.assignCounterparty(command.getChildId(), command.getAssignment());
 
 	}
 
@@ -333,7 +334,7 @@ public class SubrogationRecoveryService
 		// --------------------------------------
 		// delegate to the projector
 		// --------------------------------------
-		projector.unAssignCounterparty(command.getSubrogationRecoveryId());
+		projector.unAssignCounterparty(command.getChildId());
 	}
 	
 
