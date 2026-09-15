@@ -76,9 +76,6 @@ Dockerfile=.
 
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
-#BaseTest.java=.src.test.java.$packageName.test
-#__classes__Test.java=.src.test.java.$packageName.test
-
 BaseTest.java=.src.main.java.$packageName.test
 __classes__Test.java=.src.main.java.$packageName.test
 
